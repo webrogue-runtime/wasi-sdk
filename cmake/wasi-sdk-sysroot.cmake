@@ -452,7 +452,7 @@ function(define_libcxx target)
   # Temporary wasip3 experimental coop threads sysroot before it's enabled by
   # default.
   if (${target} STREQUAL wasm32-wasip3 AND ${COOP_THREADS_POSSIBLE})
-    define_libcxx_and_lto(${coop_threads_sysroot} ${target} "-coop" OFF)
+    define_libcxx_and_lto(${coop_threads_sysroot} ${target} "-coop" ON)
 
     add_custom_target(libcxx-${target}-extra-dir-coop-threads-sysroot
       COMMAND ${CMAKE_COMMAND} -E make_directory ${coop_threads_sysroot}/include/c++/v1
